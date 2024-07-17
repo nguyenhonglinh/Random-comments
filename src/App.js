@@ -281,18 +281,22 @@ function App() {
     "Có ship đến Thanh Trì không bạn?",
   ]);
   const [randomComments, setRandomComments] = useState([]);
+  const [copySuccess, setCopySuccess] = useState("");
 
   const getRandomComments = () => {
     const shuffled = comments.sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 10);
     setRandomComments(selected);
+    setCopySuccess(""); // Xóa thông báo cũ khi chọn bình luận mới
   };
 
   const copyToClipboard = () => {
     const textToCopy = randomComments.join("\n");
-    navigator.clipboard.writeText(textToCopy).then(() => {});
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      setCopySuccess("Copied to clipboard!");
+      setTimeout(() => setCopySuccess(""), 10000); // Ẩn thông báo sau 2 giây
+    });
   };
-
   return (
     <div className="App">
       <header className="App-header">
@@ -307,9 +311,15 @@ function App() {
             </li>
           ))}
         </ul>
-        <button className="copy-button" onClick={copyToClipboard}>
-          Copy All
-        </button>
+        {randomComments.length > 0 && (
+          <>
+            <button className="copy-button" onClick={copyToClipboard}>
+              Copy All
+            </button>
+            {copySuccess && <div className="copy-success">{copySuccess}</div>}
+          </>
+        )}
+        {copySuccess && <div className="copy-success">{copySuccess}</div>}
       </header>
     </div>
   );
