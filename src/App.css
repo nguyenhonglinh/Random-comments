@@ -1,3 +1,7 @@
+* {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
 .App {
   text-align: center;
   background-color: #f0f8ff;
@@ -6,15 +10,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  padding: 20px;
 }
+
 
 .App-header {
   background-color: #ffcccb;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.App-header > p {
+  font-size: 22px;
+  font-weight: 800;
 }
 
 .random-button {
@@ -35,6 +43,19 @@
   background-color: #ff1493;
 }
 
+.active-button {
+  background-color: #64b5f6;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  margin: 0 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+}
+
 .comments-list {
   padding: 0;
   max-width: 600px;
@@ -52,17 +73,22 @@
 }
 
 .copy-button{
+  background-color: #ff69b4;
   cursor: pointer;
-  background-color: #ff1493;
   margin: 5px 0;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
   border: none;
   font-size: 16px;
   font-weight: 800;
   color: #f0f8ff;
   text-align: left;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+  background-color: #ff1493;
 }
 
 h1 {

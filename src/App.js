@@ -9,38 +9,54 @@ function App() {
 
   const [randomComments, setRandomComments] = useState([]);
   const [copySuccess, setCopySuccess] = useState("");
+  const [activeButton, setActiveButton] = useState("");
 
-  const getRandomComments = () => {
+  const getRandomComments = (buttonName) => {
     const shuffled = comments.sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 10);
     setRandomComments(selected);
+    setActiveButton(buttonName);
     setCopySuccess(""); // Xóa thông báo cũ khi chọn bình luận mới
   };
 
-  const getBuffComments = () => {
+  const getBuffComments = (buttonName) => {
     const shuffled = buffComments.sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 10);
     setRandomComments(selected);
+    setActiveButton(buttonName);
     setCopySuccess(""); // Xóa thông báo cũ khi chọn bình luận mới
   };
 
-  const copyToClipboard = () => {
+  const copyToClipboard = (buttonName) => {
     const textToCopy = randomComments.join("\n");
     navigator.clipboard.writeText(textToCopy).then(() => {
       setCopySuccess("Copied to clipboard!");
+      setActiveButton(buttonName);
       setTimeout(() => setCopySuccess(""), 10000); // Ẩn thông báo sau 2 giây
     });
   };
   return (
     <div className="App">
       <header className="App-header">
-        <p style={{ fontWeight: 700 }}> Random Comment Picker</p>
-        <button className="random-button" onClick={getRandomComments}>
-          Pick 10 Comments Banh Bao
+        <p> 10 Random Comment Picker</p>
+        <button
+          className={
+            activeButton === "banhbao" ? "active-button" : "random-button"
+          }
+          onClick={() => {
+            getRandomComments("banhbao");
+          }}
+        >
+          Comments Banh Bao
         </button>
 
-        <button className="random-button" onClick={getBuffComments}>
-          Pick 10 Comments Shopee Sale
+        <button
+          className={
+            activeButton === "shopee" ? "active-button" : "random-button"
+          }
+          onClick={() => getBuffComments("shopee")}
+        >
+          Comments Shopee Sale
         </button>
 
         <ul className="comments-list ">
