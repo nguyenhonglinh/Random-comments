@@ -1,38 +1,69 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #f0f8ff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  padding: 20px;
+}
+
+.App-header {
+  background-color: #ffcccb;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.random-button {
+  background-color: #ff69b4;
+  border: none;
   color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  font-weight: 700;
 }
 
-.App-link {
-  color: #61dafb;
+.random-button:hover {
+  background-color: #ff1493;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.comments-list {
+  padding: 0;
+  max-width: 600px;
+  margin: 20px auto;
+  list-style-type: none
+}
+
+.comment-item {
+  background-color: #ffffff;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.copy-button{
+  background-color: #ff1493;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 18px;
+  font-weight: 800;
+  color: #f0f8ff;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #ff69b4;
 }
